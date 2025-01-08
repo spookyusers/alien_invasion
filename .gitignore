@@ -1,4 +1,4 @@
 __pycache__/
 ai_env/
 *.sqlite3
-
+.vscode/
