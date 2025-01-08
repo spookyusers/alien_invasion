@@ -8,6 +8,7 @@ class AlienInvasion:
     def __init__(self):
         """Initialize the game, and create game resources."""
         pygame.init()
+        self.clock = pygame.time.Clock() # To handle framerate.
 
         self.screen = pygame.display.set_mode((1200, 800))
         pygame.display.set_caption("Alien Invasion")
@@ -21,7 +22,8 @@ class AlienInvasion:
                     sys.exit()
             
             # Make the most recently drawn screen visible.
-            pygame.display.flip()
+            pygame.display.flip() # "Flip" the page
+            self.clock.tick(60) # hold fram rate at 60 fps
 
 if __name__ == '__main__':
     # Make a game instance, and run the game.
