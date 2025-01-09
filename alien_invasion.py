@@ -75,6 +75,7 @@ class AlienInvasion:
             # Destroy existing bullets and create a new fleet.
             self.bullets.empty()
             self._create_fleet()
+            self.settings.increase_speed()
     
     def _ship_hit(self):
         """Respond to the ship being hit by an alien."""
@@ -91,7 +92,7 @@ class AlienInvasion:
             self.ship.center_ship()
 
             # Pause.
-            sleep(0.5)
+            sleep(0.5) 
         else:
             self.game_active = False
             pygame.mouse.set_visible(True)
@@ -187,7 +188,8 @@ class AlienInvasion:
         button_clicked = self.play_button.rect.collidepoint(mouse_pos)
         if button_clicked and not self.game_active:
             if self.play_button.rect.collidepoint(mouse_pos):
-                # Reset game statistics
+                # Reset game settings.
+                self.settings.initialize_dynamic_settings()
                 self.stats.reset_stats()
                 self.game_active = True
 
